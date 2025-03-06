@@ -18,7 +18,7 @@ Considerations:
 
 ## Demo
 
-[Watch Video](https://github.com/0xdebugit/nestjs-multi-queue/blob/main/demo-queue.mp4)
+[![Watch Video](https://i9.ytimg.com/vi/W00xh2PWSB8/mqdefault.jpg?sqp=CLyVpr4G-oaymwEmCMACELQB8quKqQMa8AEB-AGuBoAC4AOKAgwIABABGEwgOih_MA8=&rs=AOn4CLBoyWeuppjX0TCS2c1maqtYay3Y5w)](https://youtu.be/W00xh2PWSB8)
 
 ## Project setup
 
