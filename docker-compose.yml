@@ -17,7 +17,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=guest
       - AWS_SQS_HOST=localstack
       - AWS_SQS_PORT=4566
-      - RABBITMQ_HOST=test-nest-app-rabbitmq-1
+      - RABBITMQ_HOST=nestjs-multi-queue-rabbitmq-1
       - RABBITMQ_PORT=5672
       - RABBITMQ_USERNAME=guest
       - RABBITMQ_PASSWORD=guest

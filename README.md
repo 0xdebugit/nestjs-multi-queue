@@ -24,21 +24,20 @@ Considerations:
 
 ```bash
 docker-compose  up  --build  -d
+docker start
 ```
 
 ## Send Message to Queue
 
 ```bash
-
-$  curl  -X  POST  http://localhost:3000/publish  -H  "Content-Type: application/json"  -d  '{"value": "Hello from CLI"}'
-
+curl  -X  POST  http://localhost:3000/publish  -H  "Content-Type: application/json"  -d  '{"value": "Hello from CLI"}'
 ```
 
 ## Receive Message from Queue
 
 ```bash
 
-$  curl  -X  GET  http://localhost:3000/consume 
+curl  -X  GET  http://localhost:3000/consume 
 
 ```
 
@@ -46,5 +45,5 @@ $  curl  -X  GET  http://localhost:3000/consume
 
 ```bash
 # e2e tests
-$  npm  run  test:e2e
+npm  run  test:e2e
 ```
