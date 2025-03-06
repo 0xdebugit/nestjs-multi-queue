@@ -27,6 +27,8 @@ docker-compose  up  --build  -d
 docker start
 ```
 
+if incase api container fails to start, restart it
+
 ## Send Message to Queue
 
 ```bash
