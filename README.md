@@ -13,8 +13,12 @@ Considerations:
 	- Handled via env
     
 -   How can I write the app to test it and have queues ready?
-	- E2E, we could create a separate test container and make this E2E run on test-queue, if all good we can bootstrap the main-queue 
-  
+	- E2E. We could create a separate test container and make this E2E run on test-queue, if all good we can bootstrap the main-queue
+
+
+## Demo
+
+[Watch Video](https://github.com/0xdebugit/nestjs-multi-queue/blob/main/demo-queue.mp4)
 
 ## Project setup
 
