@@ -1,0 +1,67 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  # Nest.js API service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - QUEUE_NAME=main-queue
+      - AWS_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=guest
+      - AWS_SECRET_ACCESS_KEY=guest
+      - AWS_SQS_HOST=localstack
+      - AWS_SQS_PORT=4566
+      - RABBITMQ_HOST=test-nest-app-rabbitmq-1
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USERNAME=guest
+      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_VHOST=/
+      - QUEUE_TYPE=SQS,RBQ
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - rabbitmq
+      - localstack
+    networks:
+      - app-network
+
+  # RabbitMQ service
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"  # AMQP protocol port
+      - "15672:15672"  # Management UI port
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - app-network
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=sqs
+      - DEBUG=1
+    volumes:
+      - './localstack:/var/lib/localstack'   
+    networks:
+      - app-network         
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  rabbitmq-data:
